@@ -39,7 +39,7 @@ function multiply(a, b) { //eslint-disable-line
 
   return answer;
 }
-console.log('multiply(a, b): ' + multiply(5, 10));
+// console.log('multiply(a, b): ' + multiply(5, 10));
 
 // Here is the test for multiply(); uncomment it to run it
 testMultiply(5,9);
@@ -59,11 +59,36 @@ Test this function by hand in the console to get it working, and when you think 
 
 
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-// TODO: Write your code here
+
+  var answer = [];
+
+  // sum the 3 elements
+  var sum1 = sum(a, b)[0];
+  var sum2 = sum(sum1,c);
+
+  answer[0] = sum2[0];
+  // console.log('answer[0]: ' + answer[0]);
+
+  // multiply the 3 numbers
+  var prod1 = multiply(a,b)[0];
+  var prod2 = multiply(prod1,c);
+
+  answer[1] = prod2[0];
+  // console.log('answer[1]: ' + answer[1]);
+
+  // first string "4 and 7 and 5 sum to 16."
+  answer[2] =  a + ' and ' + b + ' and ' + c + ' sum to ' + answer[0] + '.'
+  // console.log('answer[2]: ' + answer[2]);
+
+  // second string "The product of 4 and 7 and 5 is 140."
+  answer[3] =  'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + answer[1] + '.'
+  // console.log('answer[3]: ' + answer[3]);
+
+  return answer;
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
-// testSumAndMultiply(4,7,5);
+testSumAndMultiply(4,7,5);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
