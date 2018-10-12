@@ -64,24 +64,24 @@ function sumAndMultiply(a, b, c) { //eslint-disable-line
 
   // sum the 3 elements
   var sum1 = sum(a, b)[0];
-  var sum2 = sum(sum1,c);
+  var sum2 = sum(sum1,c)[0];
 
-  answer[0] = sum2[0];
+  answer[0] = sum2;
   // console.log('answer[0]: ' + answer[0]);
 
   // multiply the 3 numbers
   var prod1 = multiply(a,b)[0];
-  var prod2 = multiply(prod1,c);
+  var prod2 = multiply(prod1,c)[0];
 
-  answer[1] = prod2[0];
+  answer[1] = prod2;
   // console.log('answer[1]: ' + answer[1]);
 
   // first string "4 and 7 and 5 sum to 16."
-  answer[2] =  a + ' and ' + b + ' and ' + c + ' sum to ' + answer[0] + '.'
+  answer[2] = `${a} and ${b} and ${c} sum to ${answer[0]}.`
   // console.log('answer[2]: ' + answer[2]);
 
   // second string "The product of 4 and 7 and 5 is 140."
-  answer[3] =  'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + answer[1] + '.'
+  answer[3] =  `The product of ${a} and ${b} and ${c} is ${answer[1]}.`
   // console.log('answer[3]: ' + answer[3]);
 
   return answer;
@@ -106,12 +106,29 @@ Test this function by hand in the console to get it working, and when you think 
 var testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(testArray) { //eslint-disable-line
-  // TODO: Write your code here
+
+  var answer = [];
+  var totalSum = 0;
+  for (var i = 0; i < testArray.length-0; i++){
+    
+    // determine which number to add
+    var currentNumber = testArray[i];
+
+    // add it to the rolling total
+    totalSum = sum(totalSum, currentNumber)[0];
+  }
+  answer[0] = totalSum;
+
+  // create string "2,3,4 was passed in as an array of numbers, and 9 is their sum."
+  var string = `${testArray[0]},${testArray[1]},${testArray[2]} was passed in as an array of numbers, and ${answer[0]} is their sum.`;
+  answer [1] = string;
+
+  return answer;
 }
 
 // Here is the test for sumArray(); uncomment it to run it
 
-// testSumArray(testArray);
+testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
