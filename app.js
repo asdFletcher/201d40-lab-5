@@ -144,11 +144,29 @@ Test this function by hand in the console to get it working, and when you think 
 
 
 function multiplyArray(multArr) { //eslint-disable-line
-  // TODO: Write your code here
+  var answer = [];
+  var totalProd = 1;
+  for (var i = 0; i < testArray.length-0; i++){
+    
+    // determine which number to add
+    var currentNumber = testArray[i];
+
+    // add it to the rolling total
+    totalProd = multiply(totalProd, currentNumber)[0];
+    //console.log('totalProd: ' + totalProd);
+  }
+  answer[0] = totalProd;
+
+  // create string "The numbers 2,3,4 have a product of 24."
+  var string = `The numbers ${testArray[0]},${testArray[1]},${testArray[2]} have a product of ${answer[0]}.`;
+  answer [1] = string;
+
+  //console.log('answer: ' + answer);
+  return answer;
 }
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray(testArray);
+testMultiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
 
